@@ -13,7 +13,7 @@ export const ContentContainer: FC = props => {
       {/* SideBar / Drawer */}
       <div className="drawer-side">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
-        <ul className="p-4 overflow-y-auto menu w-80 bg-base-100">
+        <ul className="p-4 overflow-y-auto menu w-40 bg-base-100">
           <li>
             <h1>Menu</h1>
           </li>
@@ -25,6 +25,11 @@ export const ContentContainer: FC = props => {
           <li>
             <Link href="/basics">
               <a>Basics</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/faucet">
+              <a>Faucet</a>
             </Link>
           </li>
         </ul>
