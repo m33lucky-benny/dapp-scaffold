@@ -32,6 +32,11 @@ export const ContentContainer: FC = props => {
               <a>Faucet</a>
             </Link>
           </li>
+          <li>
+            <Link href="/portfolio">
+              <a>Portfolio</a>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
