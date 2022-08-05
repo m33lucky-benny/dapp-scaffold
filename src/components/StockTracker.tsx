@@ -89,7 +89,7 @@ export const StockTracker = () => {
   };
 
   const generateStockInfo = async (ticker: string, qty: string, investedSum: string) => {
-    const boughtPrice = (parseInt(investedSum) / parseInt(qty)).toFixed(2);
+    const boughtPrice = (parseInt(investedSum) / parseInt(qty)).toFixed(10);
     const stockInfo = await getResultsByTicker(ticker, "USD");
     const lastPrice = stockInfo?.["PRICE"];
     const gainOrLoss = parseInt(qty) * (parseInt(lastPrice) - parseInt(boughtPrice));
@@ -200,15 +200,15 @@ export const StockTracker = () => {
 
       <FormControl >
         <InputLabel sx={{color: "green"}} htmlFor="ticker">Ticker</InputLabel>
-        <Input id="ticker" value={formValues.ticker} onChange={handleChange("ticker")} />
+        <Input sx={{color: "white"}} id="ticker" value={formValues.ticker} onChange={handleChange("ticker")} />
       </FormControl>
       <FormControl>
         <InputLabel sx={{color: "green"}}htmlFor="qty">qty</InputLabel>
-        <Input id="qty" value={formValues.qty} onChange={handleChange("qty")} />
+        <Input sx={{color: "white"}} id="qty" value={formValues.qty} onChange={handleChange("qty")} />
       </FormControl>
       <FormControl>
         <InputLabel sx={{color: "green"}}htmlFor="price">Invested Sum</InputLabel>
-        <Input id="price" value={formValues.investedSum} onChange={handleChange("investedSum")} />
+        <Input sx={{color: "white"}} id="price" value={formValues.investedSum} onChange={handleChange("investedSum")} />
       </FormControl>
 
       <Button onClick={addNewRow}>Add New Row</Button>

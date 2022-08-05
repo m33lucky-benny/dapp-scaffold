@@ -4,7 +4,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "next dev",
+   
+    "dev": "next dev -p 6688",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
