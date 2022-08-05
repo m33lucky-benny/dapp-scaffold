@@ -21,7 +21,8 @@ const createData = (
   investedSum: string,
   last: string,
   change: string,
-  glToday: string,
+  //glToday: string,
+  glToday: number,
   gainOrLoss: string
 ) => {
   return { ticker, qty, investedSum, last, change, glToday, gainOrLoss };
@@ -89,12 +90,13 @@ export const StockTracker = () => {
   };
 
   const generateStockInfo = async (ticker: string, qty: string, investedSum: string) => {
-    const boughtPrice = (parseInt(investedSum) / parseInt(qty)).toFixed(10);
+    const boughtPrice = (parseInt(investedSum) / parseInt(qty)).toFixed(5);
     const stockInfo = await getResultsByTicker(ticker, "USD");
     const lastPrice = stockInfo?.["PRICE"];
     const gainOrLoss = parseInt(qty) * (parseInt(lastPrice) - parseInt(boughtPrice));
-    const change = stockInfo?.["CHANGEPCT24HOUR"].toFixed(2);
-    const glToday = stockInfo?.["CHANGE24HOUR"].toFixed(2);
+    const change = stockInfo?.["CHANGEPCT24HOUR"].toFixed(1);
+    //const glToday = stockInfo?.["CHANGE24HOUR"].toFixed(3);
+    const glToday = parseInt(qty) * stockInfo?.["CHANGE24HOUR"].toFixed(1);
 
     return { lastPrice, change, glToday, gainOrLoss };
   };
